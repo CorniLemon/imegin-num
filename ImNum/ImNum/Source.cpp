@@ -12,73 +12,94 @@ int main() {
 	cout << "C="; C.print();
 	cout << "D="; D.print();
 
-	cout << "\nC=B\n";
-	C = B;
-	C.print();
+	//cout << "\nC=B\n";
+	//C = B;
+	//C.print();
 
-	cout << "\nD=A+B\n";
-	D = A + B;
+	//cout << "\nD=A+B\n";
+	//D = A + B;
+	//D.print();
+
+	//cout << "\n-D\n";
+	//D=-D;//не оч
+	//D.print();
+
+	//cout << "\nA=B-C\n";
+	//A = B - C;
+	//A.print();
+
+	//cout << "\nA=A*B\n";
+	//A = A * B;
+	//A.print();
+
+	//cout << "\nA=A/B\n";
+	//A = A / B;
+	//A.print();
+
+	//cout << "\nabs(A)\n";
+	//something = A.abs();
+	//cout << something << endl;
+
+	//cout << "\nA.Dop\n";
+	//A = A.Dop(A);//както не оч
+	//A.print();
+
+	//cout << "\n++A\n";
+	//++A;
+	//A.print();
+
+	//cout << "\n--A\n";
+	//--A;
+	//A.print();
+
+	//if (A == B) {
+	//	cout << "Не вышло ((\n";
+	//}
+	//if (A != B) {
+	//	cout << "Bышло ))\n";
+	//}
+	//A = B;
+	//if (A == B) {
+	//	cout << "Bышло ))\n";
+	//}
+	//if (A != B) {
+	//	cout << "Не вышло ((\n";
+	//}
+
+	//cout << "\nA+=B\n";
+	//A += B;
+	//A.print();
+
+	//cout << "\nA-=B\n";
+	//A -= B;
+	//A.print();
+
+	//cout << "\nA*=B\n";
+	//A *= B;
+	//A.print();
+
+	//cout << "\nA/=B\n";
+	//A /= B;
+	//A.print();
+
+	cout << "\nA+1\n";
+	A = A + 1;
+	A.print();
+
+	cout << "\nA+=2\n";
+	A+=2;
+	A.print();
+
+	cout << "\nD=A++\n";
+	D = A++;
 	D.print();
 
-	cout << "\n-D\n";
-	D=-D;//не оч
+	cout << "\nA++\n";
+	A++;
+	A.print();
+
+	cout << "\nD=A--\nA\n";
+	D = A--;
 	D.print();
-
-	cout << "\nA=B-C\n";
-	A = B - C;
-	A.print();
-
-	cout << "\nA=A*B\n";
-	A = A * B;
-	A.print();
-
-	cout << "\nA=A/B\n";
-	A = A / B;
-	A.print();
-
-	cout << "\nabs(A)\n";
-	something = A.abs(A);//както не оч
-	cout << something << endl;
-
-	cout << "\nA.Dop\n";
-	A = A.Dop(A);//както не оч
-	A.print();
-
-	cout << "\n++A\n";
-	++A;
-	A.print();
-
-	cout << "\n--A\n";
-	--A;
-	A.print();
-
-	if (A == B) {
-		cout << "Не вышло ((\n";
-	}
-	if (A != B) {
-		cout << "Bышло ))\n";
-	}
-	A = B;
-	if (A == B) {
-		cout << "Bышло ))\n";
-	}
-	if (A != B) {
-		cout << "Не вышло ((\n";
-	}
-
-	cout << "\nA+=B\n";
-	A += B;
-	A.print();
-
-	cout << "\nA-=B\n";
-	A -= B;
-	A.print();
-
-	cout << "\nA*=B\n";
-	A *= B;
-	A.print();
-
-	cout << "\nA/=B\n";
-	A /= B;
 	A.print();
 }

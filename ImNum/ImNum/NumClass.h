@@ -7,11 +7,7 @@ class ImNum {
 private:
     double real, im;
 public:
-    ImNum()
-        : real(0), im(0)
-    {}
-
-    ImNum(double X, double Y)
+    ImNum(double X=0, double Y=0)
         : real(X), im(Y)
     {}
 
@@ -36,7 +32,9 @@ public:
 
     ImNum operator=(const ImNum& i)
     {
-        return ImNum(real = i.real, im = i.im);
+        this->real = i.real;
+        this->im = i.im;
+        return *this;
     }
 
     ImNum operator*(const ImNum& i)
@@ -52,24 +50,38 @@ public:
     {
         ImNum is = Dop(i);
         double Zn = i.real * i.real + i.im * i.im;
-        *this = *this * is;
-        return ImNum(real/Zn, im/Zn);
+        is = *this * is;
+        return ImNum(is.real/Zn, is.im/Zn);
     }
 
     ImNum operator++()
     {
         ++real;
-        return ImNum(real,im);
+        return *this;
+    }
+
+    ImNum operator++(int a)
+    {
+        ImNum is=*this;
+        ++real;
+        return is;
     }
 
     ImNum operator--()
     {
         --real;
-        return ImNum(real, im);
+        return *this;
     }
 
-    double abs(const ImNum& i) {
-        return (sqrt(i.real * i.real + i.im * i.im));
+    ImNum operator--(int a)
+    {
+        ImNum is = *this;
+        --real;
+        return is;
+    }
+
+    double abs() {
+        return (sqrt(real * real + im * im));
     }
 
     ImNum operator-()
@@ -79,43 +91,37 @@ public:
 
     int operator==(const ImNum& i)
     {
-        if ((real == i.real) && (im == i.im))
-            return 1;
-        else
-            return 0;
+        return (real==i.real)&&(im==i.im);
     }
 
     int operator!=(const ImNum& i)
     {
-        if ((real == i.real) && (im == i.im))
-            return 0;
-        else
-            return 1;
+            return (real!=i.real)||(im!=i.im);
     }
 
     ImNum operator+=(const ImNum& i)
     {
         real += i.real;
         im += i.im;
-        return ImNum(real, im);
+        return *this;
     }
 
     ImNum operator-=(const ImNum& i)
     {
         real -= i.real;
         im -= i.im;
-        return ImNum(real, im);
+        return *this;
     }
 
     ImNum operator*=(const ImNum& i)
     {
         *this = *this * i;
-        return ImNum(real, im);
+        return *this;
     }
 
     ImNum operator/=(const ImNum& i)
     {
         *this = *this / i;
-        return ImNum(real, im);
+        return *this;
     }
 };
