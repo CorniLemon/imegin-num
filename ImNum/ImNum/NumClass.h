@@ -19,7 +19,7 @@ public:
         : real(p.real), im(p.im)
     {}
 
-    void print() {
+    void print() {//вывод
         cout << real << "+" << im << "i";
         cout << "\n";
     }
@@ -44,21 +44,78 @@ public:
         return ImNum(real*i.real-im*i.im, real*i.im+i.real*im);
     }
 
+    ImNum Dop(const ImNum& i) {
+        return ImNum(i.real, -i.im);
+    }
+
     ImNum operator/(const ImNum& i)
     {
-        ImNum is(i.real, -i.im);
+        ImNum is = Dop(i);
         double Zn = i.real * i.real + i.im * i.im;
-        *this = *this * is;//Нормально ли менять this?
+        *this = *this * is;
         return ImNum(real/Zn, im/Zn);
     }
 
-    ImNum operator++()//что должен вернуть остаток от деления? 
+    ImNum operator++()
     {
-        return ImNum(real+1,im);
+        ++real;
+        return ImNum(real,im);
     }
 
     ImNum operator--()
     {
-        return ImNum(real - 1, im);
+        --real;
+        return ImNum(real, im);
+    }
+
+    double abs(const ImNum& i) {
+        return (sqrt(i.real * i.real + i.im * i.im));
+    }
+
+    ImNum operator-()
+    {
+        return ImNum(-this->real, -this->im);
+    }
+
+    int operator==(const ImNum& i)
+    {
+        if ((real == i.real) && (im == i.im))
+            return 1;
+        else
+            return 0;
+    }
+
+    int operator!=(const ImNum& i)
+    {
+        if ((real == i.real) && (im == i.im))
+            return 0;
+        else
+            return 1;
+    }
+
+    ImNum operator+=(const ImNum& i)
+    {
+        real += i.real;
+        im += i.im;
+        return ImNum(real, im);
+    }
+
+    ImNum operator-=(const ImNum& i)
+    {
+        real -= i.real;
+        im -= i.im;
+        return ImNum(real, im);
+    }
+
+    ImNum operator*=(const ImNum& i)
+    {
+        *this = *this * i;
+        return ImNum(real, im);
+    }
+
+    ImNum operator/=(const ImNum& i)
+    {
+        *this = *this / i;
+        return ImNum(real, im);
     }
 };
