@@ -102,4 +102,9 @@ int main() {
 	D = A--;
 	D.print();
 	A.print();
+
+	cout << "\nнорм abs\n";
+	something = abs(A);
+	cout << something;
+
 }
