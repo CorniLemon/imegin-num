@@ -25,9 +25,29 @@ public:
         return ImNum(real + i.real, im + i.im);
     }
 
+    ImNum operator+(const double& i) const
+    {
+        return ImNum(real + i, im);
+    }
+
+    ImNum operator+(const int& i) const
+    {
+        return ImNum(real + i, im);
+    }
+
     ImNum operator-(const ImNum& i) const
     {
         return ImNum(real - i.real, im - i.im);
+    }
+
+    ImNum operator-(const double& i) const
+    {
+        return ImNum(real - i, im);
+    }
+
+    ImNum operator-(const int& i) const
+    {
+        return ImNum(real - i, im);
     }
 
     ImNum& operator=(const ImNum& i)
@@ -37,9 +57,33 @@ public:
         return *this;
     }
 
+    ImNum& operator=(const double& i)
+    {
+        this->real = i;
+        this->im = 0;
+        return *this;
+    }
+
+    ImNum& operator=(const int& i)
+    {
+        this->real = i;
+        this->im = 0;
+        return *this;
+    }
+
     ImNum operator*(const ImNum& i) const
     {
         return ImNum(real * i.real - im * i.im, real * i.im + i.real * im);
+    }
+
+    ImNum operator*(const double& i) const
+    {
+        return ImNum(real * i,+ i * im);
+    }
+
+    ImNum operator*(const int& i) const
+    {
+        return ImNum(real * i, +i * im);
     }
 
     ImNum Dop() const {
@@ -52,6 +96,16 @@ public:
         double Zn = i.real * i.real + i.im * i.im;
         is = *this * is;
         return ImNum(is.real / Zn, is.im / Zn);
+    }
+
+    ImNum operator/(const double& i) const
+    {
+        return ImNum(real / i, im / i);
+    }
+
+    ImNum operator/(const int& i) const
+    {
+        return ImNum(real / i, im / i);
     }
 
     ImNum& operator++()
@@ -108,6 +162,21 @@ public:
     {
         real += i.real;
         im += i.im;
+        //cout << "ImNum\n";
+        return *this;
+    }
+
+    ImNum& operator+=(const double& i)
+    {
+        real += i;
+        //cout << "double\n";
+        return *this;
+    }
+
+    ImNum& operator+=(const int& i)
+    {
+        real += i;
+        //cout << "int\n";
         return *this;
     }
 
@@ -118,13 +187,49 @@ public:
         return *this;
     }
 
+    ImNum& operator-=(const double& i)
+    {
+        real -= i;
+        return *this;
+    }
+
+    ImNum& operator-=(const int& i)
+    {
+        real -= i;
+        return *this;
+    }
+
     ImNum& operator*=(const ImNum& i)
     {
         *this = *this * i;
         return *this;
     }
 
+    ImNum& operator*=(const double& i)
+    {
+        *this = *this * i;
+        return *this;
+    }
+
+    ImNum& operator*=(const int& i)
+    {
+        *this = *this * i;
+        return *this;
+    }
+
     ImNum& operator/=(const ImNum& i)
+    {
+        *this = *this / i;
+        return *this;
+    }
+
+    ImNum& operator/=(const double& i)
+    {
+        *this = *this / i;
+        return *this;
+    }
+
+    ImNum& operator/=(const int& i)
     {
         *this = *this / i;
         return *this;
