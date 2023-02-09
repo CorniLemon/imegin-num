@@ -25,12 +25,8 @@ public:
         return ImNum(real + i.real, im + i.im);
     }
 
-    ImNum operator+(const double& i) const
-    {
-        return ImNum(real + i, im);
-    }
-
-    ImNum operator+(const int& i) const
+    template<class T>
+    ImNum operator+(const T& i) const
     {
         return ImNum(real + i, im);
     }
@@ -40,12 +36,8 @@ public:
         return ImNum(real - i.real, im - i.im);
     }
 
-    ImNum operator-(const double& i) const
-    {
-        return ImNum(real - i, im);
-    }
-
-    ImNum operator-(const int& i) const
+    template<class T>
+    ImNum operator-(const T& i) const
     {
         return ImNum(real - i, im);
     }
@@ -57,14 +49,8 @@ public:
         return *this;
     }
 
-    ImNum& operator=(const double& i)
-    {
-        this->real = i;
-        this->im = 0;
-        return *this;
-    }
-
-    ImNum& operator=(const int& i)
+    template<class T>
+    ImNum& operator=(const T& i)
     {
         this->real = i;
         this->im = 0;
@@ -76,14 +62,10 @@ public:
         return ImNum(real * i.real - im * i.im, real * i.im + i.real * im);
     }
 
-    ImNum operator*(const double& i) const
+    template<class T>
+    ImNum operator*(const T& i) const
     {
         return ImNum(real * i,+ i * im);
-    }
-
-    ImNum operator*(const int& i) const
-    {
-        return ImNum(real * i, +i * im);
     }
 
     ImNum Dop() const {
@@ -98,12 +80,8 @@ public:
         return ImNum(is.real / Zn, is.im / Zn);
     }
 
-    ImNum operator/(const double& i) const
-    {
-        return ImNum(real / i, im / i);
-    }
-
-    ImNum operator/(const int& i) const
+    template<class T>
+    ImNum operator/(const T& i) const
     {
         return ImNum(real / i, im / i);
     }
@@ -166,17 +144,11 @@ public:
         return *this;
     }
 
-    ImNum& operator+=(const double& i)
+    template<class T>
+    ImNum& operator+=(const T& i)
     {
         real += i;
         //cout << "double\n";
-        return *this;
-    }
-
-    ImNum& operator+=(const int& i)
-    {
-        real += i;
-        //cout << "int\n";
         return *this;
     }
 
@@ -187,13 +159,8 @@ public:
         return *this;
     }
 
-    ImNum& operator-=(const double& i)
-    {
-        real -= i;
-        return *this;
-    }
-
-    ImNum& operator-=(const int& i)
+    template<class T>
+    ImNum& operator-=(const T& i)
     {
         real -= i;
         return *this;
@@ -205,13 +172,8 @@ public:
         return *this;
     }
 
-    ImNum& operator*=(const double& i)
-    {
-        *this = *this * i;
-        return *this;
-    }
-
-    ImNum& operator*=(const int& i)
+    template<class T>
+    ImNum& operator*=(const T& i)
     {
         *this = *this * i;
         return *this;
@@ -223,13 +185,8 @@ public:
         return *this;
     }
 
-    ImNum& operator/=(const double& i)
-    {
-        *this = *this / i;
-        return *this;
-    }
-
-    ImNum& operator/=(const int& i)
+    template<class T>
+    ImNum& operator/=(const T& i)
     {
         *this = *this / i;
         return *this;

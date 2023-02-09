@@ -108,15 +108,15 @@ int main() {
 	//cout << something;
 
 	cout << "\n+int\n";
-	A += 3;
+	A =A+ 3;
 	A.print();
 
 	cout << "\n+double\n";
-	A += 3.14;
+	A = A+3.14;
 	A.print();
 
 	cout << "\n+ImNum\n";
-	A += B;
+	A =A+ B;
 	A.print();
 
 }
