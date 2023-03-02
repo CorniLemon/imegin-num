@@ -1,5 +1,11 @@
-﻿  NumClass.cpp
-  Source.cpp
-C:\Users\Наталья\Desktop\работа\imegin-num\ImNum\ImNum\Source.cpp(8,9): warning C4101: something: неиспользованная локальная переменная
-  Создание кода...
+﻿  Source.cpp
+C:\Users\Наталья\Desktop\работа\imegin-num\ImNum\ImNum\NumClass.h(305,17): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+C:\Users\Наталья\Desktop\работа\imegin-num\ImNum\ImNum\NumClass.h(330,17): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+C:\Users\Наталья\Desktop\работа\imegin-num\ImNum\ImNum\NumClass.h(335,17): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+C:\Users\Наталья\Desktop\работа\imegin-num\ImNum\ImNum\NumClass.h(340,17): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+C:\Users\Наталья\Desktop\работа\imegin-num\ImNum\ImNum\Source.cpp(10,9): warning C4101: something: неиспользованная локальная переменная
+C:\Users\Наталья\Desktop\работа\imegin-num\ImNum\ImNum\NumClass.h(180,20): warning C4244: return: преобразование "double" в "int", возможна потеря данных
+C:\Users\Наталья\Desktop\работа\imegin-num\ImNum\ImNum\NumClass.h(179): message : во время компиляции функции-члена класс шаблон "int ImNum<int>::abs(void) const"
+C:\Users\Наталья\Desktop\работа\imegin-num\ImNum\ImNum\Source.cpp(17): message : выполняется компиляция ссылки на экземпляр шаблон функции "int ImNum<int>::abs(void) const"
+C:\Users\Наталья\Desktop\работа\imegin-num\ImNum\ImNum\NumClass.h(300): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "ImNum<int>"
   ImNum.vcxproj -> C:\Users\Наталья\Desktop\работа\imegin-num\ImNum\x64\Debug\ImNum.exe
