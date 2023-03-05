@@ -10,11 +10,11 @@ struct AbsType
     using type = T1;
 };
 
-//template<>
-//struct AbsType<int>
-//{
-//    using type = double;
-//};
+template<>
+struct AbsType<int>
+{
+    using type = double;
+};
 
 template<>
 struct AbsType<unsigned int>
@@ -252,13 +252,21 @@ public:
         return *this;
     }
 
+    Tglob operator[](size_t index)
+    {
+        return index ? im : real;
+    }
+
     /*template<class charT, class traits>
     friend basic_ostream<charT, traits>& operator<<(basic_ostream<charT, traits>& s, const ImNum<traits>& c);//*/
 
     template<class Tglob>
     friend inline ostream& operator<<(ostream& s, const ImNum<Tglob>& c);
 
-    friend inline double abs(const ImNum<int>& c);
+    template<class Tglob>
+    friend inline typename AbsType<Tglob>::type abs(const ImNum<Tglob>& c);
+
+    /*friend inline double abs(const ImNum<int>& c);
     friend inline float abs(const ImNum<short>& c);
     friend inline double abs(const ImNum<unsigned int>& c);
     friend inline long double abs(const ImNum<long long>& c);
@@ -267,7 +275,7 @@ public:
     friend inline double abs(const ImNum<long>& c);
     friend inline float abs(const ImNum<unsigned short>& c);
     friend inline float abs(const ImNum<char>& c);
-    friend inline float abs(const ImNum<unsigned char>& c);
+    friend inline float abs(const ImNum<unsigned char>& c);*/
 };
 
 //template<class charT, class traits>
@@ -285,59 +293,63 @@ inline ostream& operator<<(ostream& s, const ImNum<Tglob>& c)
 }
 
 template<class Tglob>
-inline double abs(const ImNum<Tglob>& c)
+inline typename AbsType<Tglob>::type abs(const ImNum<Tglob>& c)
 {
-    return c.abs();
+    return sqrt((typename AbsType<Tglob>::type)c.real * c.real + (typename AbsType<Tglob>::type)c.im * c.im);
 }
 
-inline double abs(const ImNum<unsigned int>& c)
-{
-    return (sqrt(c.real * c.real + c.im * c.im));
-}
-
-inline double abs(const ImNum<int>& c)
-{
-    return (sqrt(c.real * c.real + c.im * c.im));
-}
-
-inline float abs(const ImNum<short>& c)
-{
-    return (sqrt(c.real * c.real + c.im * c.im));
-}
-
-inline long double abs(const ImNum<long long>& c)
-{
-    return (sqrt(c.real * c.real + c.im * c.im));
-}
-
-inline long double abs(const ImNum<unsigned long long>& c)
-{
-    return (sqrt(c.real * c.real + c.im * c.im));
-}
-
-inline double abs(const ImNum<long>& c)
-{
-    return (sqrt(c.real * c.real + c.im * c.im));
-}
-
-inline double abs(const ImNum<unsigned long>& c)
-{
-    return (sqrt(c.real * c.real + c.im * c.im));
-}
-
-inline float abs(const ImNum<unsigned short>& c)
-{
-    return (sqrt(c.real * c.real + c.im * c.im));
-}
-
-inline float abs(const ImNum<char>& c)
-{
-    return (sqrt(c.real * c.real + c.im * c.im));
-}
-
-inline float abs(const ImNum<unsigned char>& c)
-{
-    return (sqrt(c.real * c.real + c.im * c.im));
-}
-
-
+//template<class Tglob>
+//inline double abs(const ImNum<Tglob>& c)
+//{
+//    return c.abs();
+//}
+//
+//inline double abs(const ImNum<unsigned int>& c)
+//{
+//    return (sqrt(c.real * c.real + c.im * c.im));
+//}
+//
+//inline double abs(const ImNum<int>& c)
+//{
+//    return (sqrt(c.real * c.real + c.im * c.im));
+//}
+//
+//inline float abs(const ImNum<short>& c)
+//{
+//    return (sqrt(c.real * c.real + c.im * c.im));
+//}
+//
+//inline long double abs(const ImNum<long long>& c)
+//{
+//    return (sqrt(c.real * c.real + c.im * c.im));
+//}
+//
+//inline long double abs(const ImNum<unsigned long long>& c)
+//{
+//    return (sqrt(c.real * c.real + c.im * c.im));
+//}
+//
+//inline double abs(const ImNum<long>& c)
+//{
+//    return (sqrt(c.real * c.real + c.im * c.im));
+//}
+//
+//inline double abs(const ImNum<unsigned long>& c)
+//{
+//    return (sqrt(c.real * c.real + c.im * c.im));
+//}
+//
+//inline float abs(const ImNum<unsigned short>& c)
+//{
+//    return (sqrt(c.real * c.real + c.im * c.im));
+//}
+//
+//inline float abs(const ImNum<char>& c)
+//{
+//    return (sqrt(c.real * c.real + c.im * c.im));
+//}
+//
+//inline float abs(const ImNum<unsigned char>& c)
+//{
+//    return (sqrt(c.real * c.real + c.im * c.im));
+//}
