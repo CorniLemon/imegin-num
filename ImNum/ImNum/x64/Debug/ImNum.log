@@ -1,4 +1,2 @@
 ﻿  Source.cpp
-C:\Users\Наталья\Desktop\работа\imegin-num\ImNum\ImNum\Source.cpp(220,2): warning C4834: отмена возвращаемого значения функции с атрибутом "nodiscard"
-C:\Users\Наталья\Desktop\работа\imegin-num\ImNum\ImNum\Source.cpp(304,9): warning C4101: something: неиспользованная локальная переменная
   ImNum.vcxproj -> C:\Users\Наталья\Desktop\работа\imegin-num\ImNum\x64\Debug\ImNum.exe

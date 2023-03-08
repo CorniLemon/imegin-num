@@ -257,40 +257,39 @@ public:
         return index ? im : real;
     }
 
-    /*template<class charT, class traits>
-    friend basic_ostream<charT, traits>& operator<<(basic_ostream<charT, traits>& s, const ImNum<traits>& c);//*/
-
     template<class Tglob>
     friend inline ostream& operator<<(ostream& s, const ImNum<Tglob>& c);
+
+    //template<class Tglob>
+    //friend inline ostream& operator>>(ostream& s, ImNum<Tglob>& c);
 
     template<class Tglob>
     friend inline typename AbsType<Tglob>::type abs(const ImNum<Tglob>& c);
 
-    /*friend inline double abs(const ImNum<int>& c);
-    friend inline float abs(const ImNum<short>& c);
-    friend inline double abs(const ImNum<unsigned int>& c);
-    friend inline long double abs(const ImNum<long long>& c);
-    friend inline long double abs(const ImNum<unsigned long long>& c);
-    friend  inline double abs(const ImNum<unsigned long>& c);
-    friend inline double abs(const ImNum<long>& c);
-    friend inline float abs(const ImNum<unsigned short>& c);
-    friend inline float abs(const ImNum<char>& c);
-    friend inline float abs(const ImNum<unsigned char>& c);*/
-};
+    template<class Tglob>
+    friend inline int CompReal(const ImNum<Tglob>& v1, const ImNum<Tglob>& v2);
 
-//template<class charT, class traits>
-//inline basic_ostream<charT, traits>& operator<<(basic_ostream<charT, traits>& s, const ImNum<traits>& c)
-//{
-//    s << c.real <<(c.im >= 0 ? "+" : "-") << "i" << abs(c.im);
-//    return s;
-//}
+    template<class Tglob>
+    friend inline int CompIm(const ImNum<Tglob>& v1, const ImNum<Tglob>& v2);
+};
 
 template<class Tglob>
 inline ostream& operator<<(ostream& s, const ImNum<Tglob>& c)
 {
-    s << c.real << (c.im >= 0 ? "+" : "-") << "i" << abs(c.im);
+    s << c.real << (c.im >= 0 ? "+" : "-") << abs(c.im) << "i";
     return s;
 }
+
+//template<class Tglob>
+//inline ostream& operator>>(ostream& s, ImNum<Tglob>& c)
+//{
+//    char i; // для чтения + - i
+//    s >> c.real;
+//    s >> i;
+//    s >> c.im;
+//    s >> i;
+//    return s;
+//}
 
 template<class Tglob>
 inline typename AbsType<Tglob>::type abs(const ImNum<Tglob>& c)
@@ -298,58 +297,14 @@ inline typename AbsType<Tglob>::type abs(const ImNum<Tglob>& c)
     return sqrt((typename AbsType<Tglob>::type)c.real * c.real + (typename AbsType<Tglob>::type)c.im * c.im);
 }
 
-//template<class Tglob>
-//inline double abs(const ImNum<Tglob>& c)
-//{
-//    return c.abs();
-//}
-//
-//inline double abs(const ImNum<unsigned int>& c)
-//{
-//    return (sqrt(c.real * c.real + c.im * c.im));
-//}
-//
-//inline double abs(const ImNum<int>& c)
-//{
-//    return (sqrt(c.real * c.real + c.im * c.im));
-//}
-//
-//inline float abs(const ImNum<short>& c)
-//{
-//    return (sqrt(c.real * c.real + c.im * c.im));
-//}
-//
-//inline long double abs(const ImNum<long long>& c)
-//{
-//    return (sqrt(c.real * c.real + c.im * c.im));
-//}
-//
-//inline long double abs(const ImNum<unsigned long long>& c)
-//{
-//    return (sqrt(c.real * c.real + c.im * c.im));
-//}
-//
-//inline double abs(const ImNum<long>& c)
-//{
-//    return (sqrt(c.real * c.real + c.im * c.im));
-//}
-//
-//inline double abs(const ImNum<unsigned long>& c)
-//{
-//    return (sqrt(c.real * c.real + c.im * c.im));
-//}
-//
-//inline float abs(const ImNum<unsigned short>& c)
-//{
-//    return (sqrt(c.real * c.real + c.im * c.im));
-//}
-//
-//inline float abs(const ImNum<char>& c)
-//{
-//    return (sqrt(c.real * c.real + c.im * c.im));
-//}
-//
-//inline float abs(const ImNum<unsigned char>& c)
-//{
-//    return (sqrt(c.real * c.real + c.im * c.im));
-//}
+template<class Tglob>
+ inline int CompReal(const ImNum<Tglob>& v1, const ImNum<Tglob>& v2)//сравнение 2 элем по real
+{
+    return v1.real > v2.real ? 1 : (v1.real < v2.real ? -1 : 0);
+}
+
+ template<class Tglob>
+ inline int CompIm(const ImNum<Tglob>& v1, const ImNum<Tglob>& v2)//сравнение 2 элем по real
+ {
+     return v1.im > v2.im ? 1 : (v1.im < v2.im ? -1 : 0);
+ }

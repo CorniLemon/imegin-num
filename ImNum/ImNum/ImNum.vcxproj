@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Comp.h" />
     <ClInclude Include="NumClass.h" />
   </ItemGroup>
   <ItemGroup>
