@@ -83,6 +83,14 @@ public:
         : real(p.real), im(p.im)
     {}
 
+    Tglob giveR() const{
+        return real;
+    }
+
+    Tglob giveI() const {
+        return im;
+    }
+
     void print() const {//вывод
         cout << real << "+" << im << "i";
         cout << "\n";
@@ -266,11 +274,11 @@ public:
     template<class Tglob>
     friend inline typename AbsType<Tglob>::type abs(const ImNum<Tglob>& c);
 
-    template<class Tglob>
-    friend inline int CompReal(const ImNum<Tglob>& v1, const ImNum<Tglob>& v2);
+    /*template<class Tglob>
+    friend inline int CompReal(const ImNum<Tglob>& v1, const ImNum<Tglob>& v2);*/
 
-    template<class Tglob>
-    friend inline int CompIm(const ImNum<Tglob>& v1, const ImNum<Tglob>& v2);
+   /* template<class Tglob>
+    friend inline int CompIm(const ImNum<Tglob>& v1, const ImNum<Tglob>& v2);*/
 };
 
 template<class Tglob>
@@ -297,14 +305,14 @@ inline typename AbsType<Tglob>::type abs(const ImNum<Tglob>& c)
     return sqrt((typename AbsType<Tglob>::type)c.real * c.real + (typename AbsType<Tglob>::type)c.im * c.im);
 }
 
-template<class Tglob>
- inline int CompReal(const ImNum<Tglob>& v1, const ImNum<Tglob>& v2)//сравнение 2 элем по real
-{
-    return v1.real > v2.real ? 1 : (v1.real < v2.real ? -1 : 0);
-}
-
- template<class Tglob>
- inline int CompIm(const ImNum<Tglob>& v1, const ImNum<Tglob>& v2)//сравнение 2 элем по real
- {
-     return v1.im > v2.im ? 1 : (v1.im < v2.im ? -1 : 0);
- }
+//template<class Tglob>
+// inline int CompReal(const ImNum<Tglob>& v1, const ImNum<Tglob>& v2)//сравнение 2 элем по real
+//{
+//    return v1.real > v2.real ? 1 : (v1.real < v2.real ? -1 : 0);
+//}
+//
+// template<class Tglob>
+// inline int CompIm(const ImNum<Tglob>& v1, const ImNum<Tglob>& v2)//сравнение 2 элем по real
+// {
+//     return v1.im > v2.im ? 1 : (v1.im < v2.im ? -1 : 0);
+// }
